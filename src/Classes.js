@@ -15,6 +15,7 @@ class Character {
       if (this.health === 0) {
          throw new Error(`You cannot increase the level of the deceased hero`);
       }
+
       this.level += 1;
       this.health = 100;
       this.attack += Math.floor(this.attack * 0.2);
@@ -25,6 +26,7 @@ class Character {
       if (this.health <= 0) {
          throw new Error(`You are dead`);
       }
+
       this.health -= Math.floor(points * (1 - this.defence / 100));
    }
 }
