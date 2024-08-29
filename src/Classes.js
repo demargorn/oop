@@ -85,5 +85,4 @@ class Daemon extends Character {
    }
 }
 
-export default Character;
 export { Bowman, Swordsman, Magician, Undead, Zombie, Daemon };

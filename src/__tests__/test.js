@@ -1,13 +1,12 @@
 import { Bowman, Swordsman, Magician, Undead, Zombie, Daemon } from '../Classes';
-import Character from '../Classes';
 
 test('test name', () => {
-   const test = new Character('Legolas');
+   const test = new Bowman('Legolas');
    expect(test).toBe(test);
 });
 
 test('test name error', () => {
-   expect(() => new Character('AragornTheSunOfArathorn')).toThrow();
+   expect(() => new Bowman('AragornTheSunOfArathorn')).toThrow();
 });
 
 test('test levelUp fn ', () => {
