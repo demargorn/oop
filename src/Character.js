@@ -1,14 +1,27 @@
 class Character {
-   constructor(name) {
+   static types = {
+      bowman: 'Bowman',
+      swordsman: 'Swordsman',
+      magican: 'Magician',
+      undead: 'Undead',
+      zombie: 'Zombie',
+      daemon: 'Daemon',
+   };
+
+   constructor(name, type) {
       this.name = name;
-      this.type = null;
+      this.type = type;
       this.level = 1;
       this.health = 100;
       this.attack = null;
       this.defence = null;
 
-      if (this.name.length < 2 || this.name.length > 10) {
+      if (typeof name !== 'string' || this.name.length < 2 || this.name.length > 10) {
          throw new Error(`Your name must be at least 2 and no more than 10 characters`);
+      }
+
+      if (!Object.values(Character.types).includes(type) || typeof type !== 'string') {
+         throw new Error('invalid character type');
       }
    }
 
@@ -19,8 +32,8 @@ class Character {
 
       this.level += 1;
       this.health = 100;
-      this.attack += Math.floor(this.attack * 0.2);
-      this.defence += Math.floor(this.defence * 0.2);
+      this.attack *= 1.2;
+      this.defence *= 1.2;
    }
 
    damage(points) {
