@@ -1,12 +1,5 @@
 class Character {
-   static types = {
-      bowman: 'Bowman',
-      swordsman: 'Swordsman',
-      magican: 'Magician',
-      undead: 'Undead',
-      zombie: 'Zombie',
-      daemon: 'Daemon',
-   };
+   static types = ['Bowman', 'Swordsman', 'Magician', 'Undead', 'Zombie', 'Daemon'];
 
    constructor(name, type) {
       this.name = name;
@@ -20,7 +13,7 @@ class Character {
          throw new Error(`Your name must be at least 2 and no more than 10 characters`);
       }
 
-      if (!Object.values(Character.types).includes(type) || typeof type !== 'string') {
+      if (!Character.types.includes(type) || typeof type !== 'string') {
          throw new Error('invalid character type');
       }
    }
